@@ -12,6 +12,6 @@ public class TestController
 	@RequestMapping("/hello/{name}")
     public String hello(@PathVariable String name, Model model) {
             model.addAttribute("name", name);
-            return "hello/hello";
+            return "hello";
     }
 }
