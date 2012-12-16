@@ -1,3 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+
+<fmt:setBundle basename="i18n.generalApp" var="generalApp" scope="application" />
+<fmt:setBundle basename="i18n.menu" var="menu_messages" scope="application" />
+
 <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -6,24 +12,36 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Project name</a>
+                    <a class="brand" href="${pageContext.request.contextPath}/index.jsp"><fmt:message key="APPLICATION_NAME" bundle="${generalApp}" /></a>
+                    
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li class="nav-header">Nav header</li>
-                                    <li><a href="#">Separated link</a></li>
-                                    <li><a href="#">One more separated link</a></li>
-                                </ul>
-                            </li>
+                        	<c:forEach items="${requestScope.menu.entries}" var="menu">
+                        		<%-- si es el punto activo poner class="active" --%>
+                        		<c:choose>
+				                     <c:when test="${menu.childs==null}">
+                        				<li><a href="${pageContext.request.contextPath}${menu.url}"><fmt:message key="${menu.nameKey}" bundle="${menu_messages}" /></a></li>
+                        			</c:when>
+	                        		<c:otherwise>
+		                            	<li class="dropdown">
+		                            		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="${menu.nameKey}" bundle="${menu_messages}"  /><b class="caret"></b></a>
+		                            		<ul class="dropdown-menu">
+			                                	<c:forEach items="${menu.childs}" var="submenu">
+				                                	<c:choose>
+					                                	<c:when test="${submenu.url == null }" >
+					                                		<li class="divider"></li>
+	                                    					<li class="nav-header"><fmt:message key="${submenu.nameKey}" bundle="${menu_messages}" /></li>
+					                                	</c:when>
+					                                	<c:otherwise>
+					                                		<li><a href="${pageContext.request.contextPath}${submenu.url}"><fmt:message key="${submenu.nameKey}" bundle="${menu_messages}" /></a></li>
+					                                	</c:otherwise>
+				                                	</c:choose>
+			                                	</c:forEach>
+			                                </ul>
+		                            	</li>
+	                           		</c:otherwise>
+	                           	</c:choose>
+                            </c:forEach>
                         </ul>
                         <form class="navbar-form pull-right">
                             <input class="span2" type="text" placeholder="Email">

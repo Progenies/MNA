@@ -1,1 +1,1 @@
-Hello, <%= request.getAttribute("name") %>!
+Hello, <%= request.getAttribute("name") %>! (<%= request.getAttribute("menu") %>)

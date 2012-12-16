@@ -1,8 +1,10 @@
 <%@page isELIgnored="false" %>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+
+<fmt:setBundle basename="i18n.generalApp" var="generalApp" scope="application" />
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title><sstiles:getAsString name="title"/></title>
+        <title><fmt:message bundle="${generalApp}" key="APPLICATION_NAME" /></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
