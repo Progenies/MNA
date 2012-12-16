@@ -12,7 +12,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="${pageContext.request.contextPath}/index.jsp"><fmt:message key="APPLICATION_NAME" bundle="${generalApp}" /></a>
+                    <a class="brand" href="${pageContext.request.contextPath}/"><fmt:message key="APPLICATION_NAME" bundle="${generalApp}" /></a>
                     
                     <div class="nav-collapse collapse">
                         <ul class="nav">

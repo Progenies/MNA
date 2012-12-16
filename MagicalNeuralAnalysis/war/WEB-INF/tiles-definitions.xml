@@ -5,19 +5,27 @@
  <tiles-definitions>
  
 
-  <definition name="template-main" template="/WEB-INF/jsp/layouts/main.jsp">
-   <put-attribute name="title" value="Magical Neural Analysis" />
-   <put-attribute name="header" value="/WEB-INF/jsp/_includes/_header.jsp" />
-   <put-attribute name="html_head" value="/WEB-INF/jsp/_includes/_html_head.jsp" />
-   <put-attribute name="menu" value="/WEB-INF/jsp/_includes/_menu.jsp" />
-   <put-attribute name="content" value="" />
-   <put-attribute name="footer" value="/WEB-INF/jsp/_includes/_footer.jsp" />
-   <put-attribute name="html_footer" value="/WEB-INF/jsp/_includes/_html_footer.jsp" />
-  </definition>
-  
+	<definition name="template-main" template="/WEB-INF/jsp/layouts/main.jsp">
+		<put-attribute name="title" value="Magical Neural Analysis" />
+		<put-attribute name="header" value="/WEB-INF/jsp/_includes/_header.jsp" />
+		<put-attribute name="html_head" value="/WEB-INF/jsp/_includes/_html_head.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/_includes/_menu.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/_includes/_footer.jsp" />
+		<put-attribute name="html_footer" value="/WEB-INF/jsp/_includes/_html_footer.jsp" />
+	</definition>
 
-  <definition name="hello" extends="template-main">
-   <put-attribute name="content" value="/WEB-INF/jsp/hello/hello.jsp" />
-  </definition>
+
+	<definition name="index" extends="template-main">
+		<put-attribute name="content" value="/WEB-INF/jsp/index.jsp" />
+	</definition>  
+
+	<definition name="admin-user-list" extends="template-main">
+		<put-attribute name="content" value="/WEB-INF/jsp/admin/users.jsp" />
+	</definition>
+	
+	<definition name="admin-user-add" extends="template-main">
+		<put-attribute name="content" value="/WEB-INF/jsp/admin/userAdd.jsp" />
+	</definition>
 
  </tiles-definitions>

@@ -2,7 +2,7 @@
 	
 	
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	
 	
@@ -15,31 +15,21 @@
 	</servlet>
 	<servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/MNA/*</url-pattern>
+        <url-pattern>/</url-pattern>
 	</servlet-mapping>
+
 	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
 	</context-param>
- 
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
+
 	
 	<!-- Fin configuracion Spring -->
 
- 	<servlet>
-  		<servlet-name>SystemServiceServlet</servlet-name>
-  		<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
-  		<init-param>
-   			<param-name>services</param-name>
-   			<param-value/>
-  		</init-param>
- 	</servlet>
- 
- 	<servlet-mapping>
-  		<servlet-name>SystemServiceServlet</servlet-name>
-  		<url-pattern>/_ah/spi/*</url-pattern>
- 	</servlet-mapping>
+ 	
+ 	<error-page>
+ 		<error-code>404</error-code>
+ 		<location>/404.html</location>
+ 	</error-page>
 </web-app>

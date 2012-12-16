@@ -2,18 +2,30 @@ package com.progenies.mna.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.progenies.mna.menu.Menu;
 
-public abstract class AbstractMNAController
+public abstract class AbstractMNAController implements ApplicationContextAware
 {
+	
+	@Autowired
+	protected ApplicationContext context;
+	
+
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext)
+	{
+		
+	}
 
 	@ModelAttribute("menu")
 	public Menu insertMenu(HttpServletRequest request)
 	{
-		Menu menu=WebApplicationContextUtils.getWebApplicationContext(request.getServletContext()).getBean(Menu.class);
+		Menu menu=context.getBean(Menu.class);
 		return menu;
 	}
 	

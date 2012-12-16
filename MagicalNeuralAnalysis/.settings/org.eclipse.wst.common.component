@@ -3,7 +3,7 @@
     <wb-module deploy-name="MagicalNeuralAnalysis">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
-        <wb-resource deploy-path="/" source-path="/war"/>
+        <wb-resource deploy-path="/" source-path="/war" tag="defaultRootSource"/>
         <property name="context-root" value="MagicalNeuralAnalysis"/>
         <property name="java-output-path" value="/MagicalNeuralAnalysis/build/classes"/>
     </wb-module>

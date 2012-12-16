@@ -14,7 +14,7 @@
 			</MenuEntry>
 			<MenuEntry>
 				<nameKey>KEY_USERS</nameKey>
-				<url>/maintenance/Users</url>
+				<url>/admin/Users</url>
 			</MenuEntry>
 		</childs>
 	</MenuEntry>
