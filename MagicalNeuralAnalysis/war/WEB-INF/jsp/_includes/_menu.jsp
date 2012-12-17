@@ -43,11 +43,9 @@
 	                           	</c:choose>
                             </c:forEach>
                         </ul>
-                        <form class="navbar-form pull-right">
-                            <input class="span2" type="text" placeholder="Email">
-                            <input class="span2" type="password" placeholder="Password">
-                            <button type="submit" class="btn">Sign in</button>
-                        </form>
+                        <p class="navbar-text pull-right">
+                        	<fmt:message key="USER_NAME" bundle="${generalApp}" />: <c:out value="${requestScope.userProfile.name}"/>
+                        </p>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>

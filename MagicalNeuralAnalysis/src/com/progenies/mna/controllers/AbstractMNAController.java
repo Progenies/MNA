@@ -1,5 +1,7 @@
 package com.progenies.mna.controllers;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +36,11 @@ public abstract class AbstractMNAController implements ApplicationContextAware
 	{
 		//de momento, manualmente castellano
 		return "es";
+	}
+	
+	@ModelAttribute("userProfile")
+	public Principal insertUserPrincipal(Principal userProfile)
+	{
+		return userProfile;
 	}
 }

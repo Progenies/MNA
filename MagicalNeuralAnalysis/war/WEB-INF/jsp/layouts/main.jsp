@@ -2,7 +2,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 
 <tiles:insertAttribute name="header" />
-<tiles:insertAttribute name="html_head" />
+<head>
+	<tiles:insertAttribute name="html_head" />
+</head>
 
 <fmt:setLocale value="${requestScope.locale}" />
 <fmt:setBundle basename="i18n.generalApp" var="generalApp" scope="application" />
