@@ -36,6 +36,8 @@
                 p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" p:order="1" />
                 
                 
+        <!-- Mensajes de error -->
+        <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="i18n/messages" />
         
 
 </beans>

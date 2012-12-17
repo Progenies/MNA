@@ -4,7 +4,28 @@
    Author's custom styles
    ========================================================================== */
 
+.hand {
+	cursor: pointer;
+}
 
+/* filas deshabilitadas */
+.table tbody tr.disabled td {
+  background-color: #dedede;
+  text-decoration: line-through;
+}
+
+.table-hover tbody tr.disabled:hover td {
+  background-color: #cccccc;
+  text-decoration: line-through;
+}
+
+.table tbody tr.disabled td.no-strike {
+  text-decoration: none;
+}
+
+.table-hover tbody tr.disabled:hover td.no-strike {
+  text-decoration: none;
+}
 
 
 

@@ -1,10 +1,6 @@
 package com.progenies.mna.dao.internal.impl;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,6 +40,22 @@ public class JPAUsersDAO extends AbstractDAO implements UsersDAO
 	public User updateUser(User user) {
 		return em.merge(user);
 	}
+	
+
+	@Override
+	@Transactional
+	public void updateUserExceptPassword(User user)
+	{
+		//recupero el usuario original
+		User origUser=getUserByID(user.getIdUser());
+		
+		//actualizo, del usuario a guardar, la contraseña
+		user.setPassword(origUser.getPassword());
+		
+		//guardo, dejando la contraseña original
+		em.merge(user);
+		
+	}
 
 	@Override
 	@Transactional
@@ -59,5 +71,6 @@ public class JPAUsersDAO extends AbstractDAO implements UsersDAO
 	{
 		return em.createNamedQuery("findAllUsers", User.class).getResultList();
 	}
+
 
 }

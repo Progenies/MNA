@@ -12,9 +12,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
-
 /**
  * Entity implementation class for Entity: User
  *
@@ -90,27 +87,11 @@ public class User implements Serializable
 	public void setRole(ROLE role) {
 		this.role = role;
 	}
-
-	
-	
-	public static class UserValidator implements org.springframework.validation.Validator {
-
-		@Override
-		public boolean supports(Class<?> clazz)
-		{
-			return User.class.equals(clazz);
-		}
-
-		@Override
-		public void validate(Object target, Errors errors)
-		{		
-			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "name.empty");
-			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "login", "login.empty");
-			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "password.empty");
-		}
-
-
-	
+	public void setIdUser(Long idUser2) {
+		this.idUser=idUser2;
+		
 	}
-   
+
+	
+	
 }
